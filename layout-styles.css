@@ -59,8 +59,8 @@ p {
   font-size: 15px;
   float: left;
   padding-left: 40%;
-  line-height: 20px;
-  padding-right: 11%;
+  line-height: 150%;
+  padding-right: 8%;
 }
 
 .projecttext {
@@ -98,8 +98,8 @@ p {
 }
 
 .socialhandles {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 	float: left;
 	padding-left: 41%;
 	padding-top: 90px;
@@ -109,6 +109,11 @@ p {
 a {
   color: darkgrey;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: rgb(22, 14, 126);
 }
 
 nav {
@@ -122,14 +127,29 @@ nav {
  }
 
 nav a {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 5px;
   color: white;
-  /* display: inline-block;
-  vertical-align: middle;
-  white-space: nowrap; */
   margin-right: 40px;
+}
+
+a:active {
+  color: rgb(22, 14, 126);
+}
+
+nav a:hover {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 100;
+  letter-spacing: 3.5px;
+  color: white;
+}
+
+nav a:active {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 100;
+  letter-spacing: 3.5px;
+  color: white;
 }
 
 nav a:first-child { 
