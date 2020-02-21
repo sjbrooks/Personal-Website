@@ -19,7 +19,7 @@ body, p {
   justify-content: space-around;
   width: 300px;
   height: 125px;
-  padding-left: 15%;
+  padding-left: 10%;
   position: relative;
   top: 159px;
 }
@@ -27,8 +27,8 @@ body, p {
 .flex-container {
   position: relative;
   top: 100px;
-  width: 90%;
-  padding-left: 15%;
+  width: 95%;
+  padding-left: 10%;
   margin-left: auto;
   margin-right: auto;
   align-content: center;
@@ -91,59 +91,6 @@ section {
   margin-bottom: 150px;
 }
 
-/*
-img {
-  float: left;
-}
-
-.projecttext {
-  padding-top: 25px;
-  font-size: 14px;
-  float: left;
-  padding-left: 40%;
-  line-height: 18px;
-  padding-right: 10%;
-}
-
-.projectpics {
-    float: right;
-    height: 100px;
-    padding-right: 200px;
-    padding-top: 50px;
-}
-
-.connecttext {
-  font-size: 14px;
-  float: left;
-  padding-left: 40%;
-  line-height: 18px;
-  padding-right: 10%;
-}
-
-.text_block {
-    height: 600px;
-}
-
-.fullname {
-  font-family: 'Archivo Black', sans-serif;
-  float: left;
-  font-size: 16px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  padding-top: 60px;
-  padding-left: 40%;
-}
-
-#about_pic {
-  float: left;
-  width: 35%;
-  margin-left: 1%;
-	margin-top: 70px;
-	position: fixed;
-}
-
-*/
-
 #about_pic {
   max-width: 100%;
 }
@@ -152,6 +99,10 @@ img {
   margin-right: auto;
   vertical-align: middle;
   height: 25px;
+}
+
+.project-image {
+  width: 90%;
 }
 
 .socialhandles {
@@ -197,5 +148,8 @@ img {
   } 
   h1 {
     font-size: 24px;
+  }
+  .project-image {
+    width: 300px;
   }
 }
