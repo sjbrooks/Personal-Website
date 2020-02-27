@@ -5,8 +5,8 @@ html,body {
 }
 
 body, p {
-  font-family: 'Quicksand', sans-serif;
-  font-weight: normal;
+  font-family: 'Avenir';
+  font-weight: 200;
   font-size: 18px;
   margin: 0px;
   padding: 0px;
@@ -41,6 +41,12 @@ h1 {
   font-weight: bold;
 }
 
+h2 {
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 700px;
+}
+
 p {
   line-height: 150%;
   padding-top: 1em;
@@ -69,7 +75,7 @@ nav {
 
 nav a {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 5px;
   color: white;
   margin-right: 15px;
@@ -152,7 +158,7 @@ section {
   .col-12 {
     width: 93%;
   }
-  p {
+  p, span {
     font-size: 15px;
   } 
   h1 {

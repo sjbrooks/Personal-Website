@@ -6,10 +6,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
         @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Bungee|Squada+One&display=swap');
 
         body, p, form, .removeText {
-            font-family: 'Quicksand', sans-serif;
-            font-weight: normal;
+            font-family: 'Avenir';
+            font-weight: 200;
             font-size: 18px;
             margin: 0px;
             text-align: left;
@@ -34,24 +35,37 @@
         }
 
         section {
-            padding: 20px;
-            min-height: 350px;
+            padding: 2rem;
+            min-height: 28rem;
         }
 
         #meme-generator {
             background-color: lightsteelblue;
-            padding-top: 80px;
+            padding-top: 4rem;
         }
 
-        h1, #top-text-meme, #bottom-text-meme {
+        h1 {
+            font-family: 'Bungee';
+            font-size: 40px;
+            color: darkblue;
+        }
+
+        h2 {
+            font-family: 'Avenir';
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-weight: 700px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+       #top-text-meme, #bottom-text-meme {
             font-family: 'Archivo Black', sans-serif;
             font-size: 24px;
             letter-spacing: 3px;
             font-weight: bold;
-            color: black;
-        }
-
-        #top-text-meme, #bottom-text-meme {
             position: absolute;
             left: 20px;
             color: white;
@@ -97,13 +111,13 @@
             border-radius: 10%;
             width: 100px;
             height: 30px;
-            margin-top: 30px;
-            font-weight: bold;
+            font-family: 'Bungee';
         }
 
         input {
-            margin-top: 30px;
+            margin-top: 10px;
             width: 50%;
+            display: block;
         }
 
         #genButton:hover {
@@ -134,7 +148,7 @@
 
         nav a {
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 500;
             letter-spacing: 5px;
             color: white;
             margin-right: 15px;
@@ -160,9 +174,6 @@
         }
 
         @media screen and (min-width: 900px){
-        p {
-            font-size: 15px;
-        } 
         nav a {
             margin-right: 40px;
         }
@@ -183,8 +194,7 @@
 
     <section id="meme-generator">
         <h1>MEME GENERATOR</h1>
-        <br>
-        <span>Upload an image and add some text to the top and bottom.</span>
+        <p>Upload an image and add some text to the top and bottom.</p>
         <br>
         <form action="#" id="meme-form">
             <label for="img">Select image:</label><input type="file" id="img" name="img" accept="image/*" autofocus>
@@ -193,10 +203,9 @@
             <br>
             <label for="bottom-text">Bottom Text: </label> <input type="text" id="bottom-text">
             <br>
-            <input type="submit" value="Generate!" id="genButton">
+            <input type="submit" value="GENERATE" id="genButton">
         </form>
     </section>
-    <hr>
 
     <section id="meme-gallery">
         <h1>MEME GALLERY</h1>
