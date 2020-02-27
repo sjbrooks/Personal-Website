@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Bungee|Squada+One&display=swap');
+
+        body, p, form, .removeText {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: normal;
+            font-size: 18px;
+            margin: 0px;
+            text-align: left;
+            background-color: lightsteelblue;
+        } 
+
+        .maincontainer {
+            width: 80px;
+            height: 60px;
+            border-radius: 20%;
+            display: inline-block;
+            margin: 7px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thecard {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .thecard, .thefront, .theback {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .thecard.faceup {
+            transform: rotateY(180deg);
+        }
+
+        .thefront, .theback {
+            backface-visibility: hidden;
+            color: white;
+        }
+
+        .thefront  {
+            background-color: black;
+        }
+
+        .theback  {
+            transform: rotateY(180deg);
+        }
+
+        .cardimg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            position: relative;
+        }
+
+        #gamespace {
+            padding-left: 5%;
+            padding-top: 320px;
+            padding-bottom: 50px;
+            width: 70%;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+        }
+
+        .attempts {
+            text-align: center;
+            color:darkblue;
+            font-family: 'Bungee';
+            font-size: 60px;
+        }
+
+        #resetButton {
+            width: 170px;
+            height: 60px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color:lightgreen;
+            font-family: 'Bungee';
+            border-radius: 10%;
+            margin-left: 23%;
+            margin-top: 30px;
+        }
+
+        #resetButton:hover {
+            background-color: rgba(20, 122, 92, 0.959);
+            color: white;
+        }
+
+        .blockdiv.on {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .flex-container {
+            width: 85%;
+            padding-left: 11%;
+            padding-top: 100px;
+            position: fixed;
+            z-index: 1;
+            background-color: lightsteelblue;
+        }
+
+        a {
+            color: darkgrey;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color:  rgb(87, 84, 84);
+        }
+
+        nav {
+            width: 100%;
+            height: 60px;
+            background-color: black;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: fixed; 
+            z-index: 9999;
+        } 
+
+        nav a {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: white;
+            margin-right: 15px;
+        }
+
+        a:active {
+            color: rgb(87, 84, 84);
+        }
+
+        nav a:hover {
+            color: lightgrey;
+        }
+
+        nav a:first-child { 
+            margin-right: auto; 
+        }
+
+        #logo {
+            margin-right: auto;
+            vertical-align: middle;
+            height: 20px;
+            width: auto;
+        }
+
+        .logo {
+                width: 100px;
+            }
+
+        @media screen and (max-width: 700px) {
+            .attempts {
+                font-size: 40px;
+            }
+            .flex-container {
+                width: 85%;
+            }
+        }
+
+        @media screen and (min-width: 700px) and (max-width: 1000px) {
+            #gamespace {
+                grid-template-columns: auto auto auto auto;
+                padding-top: 360px;
+            }
+            
+            .maincontainer {
+                width: 130px;
+                height: 130px;
+            }
+
+            .logo {
+                width: 130px;
+            }
+
+            .flex-container {
+                width: 80%;
+                padding-left: 5%;
+            }
+            
+            #resetButton {
+                margin-left: 33%;
+            }
+        }
+
+        @media screen and (min-width: 1000px){
+            #resetButton {
+                margin-right: 25%;
+                margin-top: 0px;
+                margin-left: 0px;
+                width: 140px;
+                height: 50px;
+                font-size: 15px;
+            }
+            
+            .attempts {
+                font-size: 50px;
+            }
+           
+            nav a {
+                margin-right: 40px;
+            }
+            
+            #logo {
+                height: 25px;
+            }
+
+            .maincontainer {
+                width: 130px;
+                height: 130px;
+            }
+
+            .logo {
+                width: 130px;
+            }
+
+            #gamespace {
+                padding-left: 20%;
+            }
+
+            #resetButton {
+                margin-right: 25%;
+                margin-top: 20px;
+                margin-left: 45%;
+            }
+        }
+
+        @media screen and (min-width: 1400px){
+            .flex-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                padding-left: 18%;
+                width: 100%;
+            }
+            #gamespace {
+                grid-template-columns: auto auto auto auto auto auto;
+                padding-left: 15%;
+                padding-top: 200px;
+            }
+
+            #resetButton {
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="http://sjbrooks.com"><img id="logo" src="Images/SJB.png" alt= "SJB Initials Logo"></a>
+        <a href="http://sjbrooks.com/#About"><b>ABOUT</b></a>
+        <a href="http://sjbrooks.com/#Projects"><b>PROJECTS</b></a>
+        <a href="http://sjbrooks.com/#Connect"><b>CONNECT</b></a>
+      </nav>
+
+    <div class="blockdiv"></div>
+    <div class="flex-container">
+        <div class="attempts">BEST GAME: <span id="best-game"></span></div>
+        <div class="attempts">ATTEMPTS: <span id="counter">0</span></div>
+        <button id="resetButton">RESET</button>
+    </div>
+
+    <section id="gamespace">
+        <div class="maincontainer">
+            <div class="thecard" id="card1" name="Shiba-Inu">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/Meme Generator.jpg"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card2" name="Shiba-Inu">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/Meme Generator.jpg"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card3" name="Ferguson">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/Ferguson.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card4" name="Ferguson">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/Ferguson.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card5" name="cat-toast">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat with toast.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card6" name="cat-toast">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat with toast.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card7" name="wtf-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/wtf cat.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card8" name="wtf-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/wtf cat.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card9" name="bored-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/bored cat.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card10" name="bored-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/bored cat.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card11" name="cat-peekaboo">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat peekaboo.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card12" name="cat-peekaboo">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat peekaboo.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card13" name="kitten-stretch">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/kitten stretch.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card14" name="kitten-stretch">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/kitten stretch.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card15" name="money-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat with money.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card16" name="money-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat with money.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card17" name="bike-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat on bike.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card18" name="bike-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat on bike.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card19" name="bowl-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/bowl cat.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card20" name="bowl-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/bowl cat.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card21" name="cat-with-glasses">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat with glasses.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card22" name="cat-with-glasses">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/cat with glasses.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card23" name="demanding-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/demanding cat.gif"></div>
+            </div>
+        </div>
+
+        <div class="maincontainer">
+            <div class="thecard" id="card24" name="demanding-cat">
+                <div class="thefront"><img class="logo" src="Images/SJB.png"></div>
+                <div class="theback"><img class="cardimg" src="Images/demanding cat.gif"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="memory-card-game.js"></script>
+</body>
+</html>

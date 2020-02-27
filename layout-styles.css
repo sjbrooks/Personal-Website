@@ -47,7 +47,7 @@ p {
 }
 
 a {
-  color: darkgrey;
+  color: black;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -99,6 +99,15 @@ section {
   margin-right: auto;
   vertical-align: middle;
   height: 20px;
+}
+
+#resume {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#resume:hover {
+  color: darkgrey;
 }
 
 .project-image {

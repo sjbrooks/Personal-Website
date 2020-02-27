@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meme Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap');
+
+        body, p, form, .removeText {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: normal;
+            font-size: 18px;
+            margin: 0px;
+            text-align: left;
+        } 
+
+        .form {
+            width: 60%;
+        }
+
+        .removeText {
+            font-weight: bold;
+            color: white;
+            z-index: 3;
+            position: absolute;
+            top: 5px;
+            right: 8px;
+        }
+
+        .removeText:hover {
+            color: lightgray;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 20px;
+            min-height: 350px;
+        }
+
+        #meme-generator {
+            background-color: lightsteelblue;
+            padding-top: 80px;
+        }
+
+        h1, #top-text-meme, #bottom-text-meme {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 24px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            color: black;
+        }
+
+        #top-text-meme, #bottom-text-meme {
+            position: absolute;
+            left: 20px;
+            color: white;
+            z-index: 2;
+            text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+        }
+
+        #top-text-meme {
+            position: absolute;
+            top: 20px;
+        }
+
+        #bottom-text-meme {
+            position: absolute;
+            bottom: 20px;
+        }
+
+        div {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            background-color: pink;
+            overflow: hidden;
+            margin-left: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            z-index: 1;
+            position: relative;
+        }
+
+        img:hover {
+            opacity: 70%;
+        }
+
+        #genButton {
+            background-color: lightgreen;
+            border-radius: 10%;
+            width: 100px;
+            height: 30px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-top: 30px;
+            width: 50%;
+        }
+
+        #genButton:hover {
+            background-color: rgba(20, 122, 92, 0.959);
+            color: white;
+        }
+
+        a {
+            color: darkgrey;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color:  rgb(87, 84, 84);
+        }
+
+        nav {
+            width: 100%;
+            height: 60px;
+            background-color: black;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: fixed; 
+            z-index: 9999;
+        } 
+
+        nav a {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: white;
+            margin-right: 15px;
+        }
+
+        a:active {
+            color: rgb(87, 84, 84);
+        }
+
+        nav a:hover {
+            color: lightgrey;
+        }
+
+        nav a:first-child { 
+            margin-right: auto; 
+        }
+
+        #logo {
+            margin-right: auto;
+            vertical-align: middle;
+            height: 20px;
+            width: auto;
+        }
+
+        @media screen and (min-width: 900px){
+        p {
+            font-size: 15px;
+        } 
+        nav a {
+            margin-right: 40px;
+        }
+        #logo {
+            height: 25px;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="http://sjbrooks.com"><img id="logo" src="SJB.png" alt= "SJB Initials Logo"></a>
+        <a href="http://sjbrooks.com/#About"><b>ABOUT</b></a>
+        <a href="http://sjbrooks.com/#Projects"><b>PROJECTS</b></a>
+        <a href="http://sjbrooks.com/#Connect"><b>CONNECT</b></a>
+      </nav>
+
+    <section id="meme-generator">
+        <h1>MEME GENERATOR</h1>
+        <br>
+        <span>Upload an image and add some text to the top and bottom.</span>
+        <br>
+        <form action="#" id="meme-form">
+            <label for="img">Select image:</label><input type="file" id="img" name="img" accept="image/*" autofocus>
+            <br>
+            <label for="top-text">Top Text: </label> <input type="text" id="top-text">
+            <br>
+            <label for="bottom-text">Bottom Text: </label> <input type="text" id="bottom-text">
+            <br>
+            <input type="submit" value="Generate!" id="genButton">
+        </form>
+    </section>
+    <hr>
+
+    <section id="meme-gallery">
+        <h1>MEME GALLERY</h1>
+    </section>
+
+    <script src="meme-generator.js"></script>
+</body>
+</html>
