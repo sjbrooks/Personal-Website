@@ -58,7 +58,7 @@ window.onload = function () {
     }
 
     function shuffle(){
-        for (let i=0; i<100; i++) {
+        for (let i=0; i<cards.length; i++) {
             var shuffleCardName = "card" + (Math.ceil(Math.random()*24));
             var cardToBeShuffled = document.getElementById(shuffleCardName).parentElement;
             gamespace.appendChild(cardToBeShuffled);
