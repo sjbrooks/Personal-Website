@@ -31,7 +31,10 @@ window.onload = function () {
                 
                 matchCount++;
                 if (matchCount === 12) {
-                    alert("Winner!");
+                    matchCount = 0;
+                    setTimeout(function () {
+                        alert("Winner!");
+                    }, 500);
                     if (JSON.parse(localStorage.getItem("best-game")) > attemptCount || JSON.parse(localStorage.getItem("best-game"))==null) {
                         localStorage.setItem("best-game", JSON.stringify(attemptCount));
                         document.getElementById('best-game').innerText = JSON.parse(localStorage.getItem("best-game"));    
