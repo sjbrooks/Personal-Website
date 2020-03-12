@@ -29,7 +29,7 @@ window.onload = function () {
 
         var memeText2 = document.createElement("h1");
         memeText2.id = 'bottom-text-meme';
-        memeText2.innerText = topText;
+        memeText2.innerText = bottomText;
         meme.appendChild(memeText2);
 
         var removeText = document.createElement("h1");
