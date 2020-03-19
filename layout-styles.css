@@ -5,7 +5,7 @@ html,body {
 }
 
 body, p {
-  font-family: 'Avenir';
+  font-family: 'Avenir', 'Montserrat', sans-serif;
   font-weight: 200;
   font-size: 16px;
   margin: 0px;
@@ -51,6 +51,8 @@ h2 {
 p {
   line-height: 1.65rem;
   padding-top: 1em;
+  font-size: 0.95rem;
+  font-weight: 300;
 }
 
 a {

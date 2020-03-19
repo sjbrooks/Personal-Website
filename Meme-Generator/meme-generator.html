@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Generator</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
@@ -27,6 +28,7 @@
             position: absolute;
             top: 5px;
             right: 8px;
+            padding: 0 0 1.5rem 1.5rem;
         }
 
         .removeText:hover {
@@ -46,7 +48,7 @@
 
         h1 {
             font-family: 'Bungee';
-            font-size: 40px;
+            font-size: 30px;
             color: darkblue;
         }
 
@@ -63,7 +65,7 @@
 
        #top-text-meme, #bottom-text-meme {
             font-family: 'Archivo Black', sans-serif;
-            font-size: 24px;
+            font-size: 18px;
             letter-spacing: 3px;
             font-weight: bold;
             position: absolute;
@@ -84,8 +86,8 @@
         }
 
         div {
-            width: 400px;
-            height: 300px;
+            width: 330px;
+            height: 250px;
             position: relative;
             background-color: pink;
             overflow: hidden;
@@ -116,7 +118,7 @@
 
         input {
             margin-top: 10px;
-            width: 50%;
+            width: 90%;
             display: block;
         }
 
@@ -173,12 +175,26 @@
             width: auto;
         }
 
+        .logo {
+                width: 100px;
+        }
+
         @media screen and (min-width: 900px){
         nav a {
             margin-right: 40px;
         }
         #logo {
             height: 25px;
+        }
+        input {
+            width: 50%;
+        }
+        div {
+            width: 400px;
+            height: 300px;
+        }
+        #top-text-meme, #bottom-text-meme {
+            font-size: 24px;
         }
         }
 
@@ -194,7 +210,7 @@
 
     <section id="meme-generator">
         <h1>MEME GENERATOR</h1>
-        <p>Upload an image and add some text to the top and bottom.</p>
+        <p>Upload an image and add your caption!</p>
         <br>
         <form action="#" id="meme-form">
             <label for="img">Select image:</label><input type="file" id="img" name="img" accept="image/*" autofocus>
